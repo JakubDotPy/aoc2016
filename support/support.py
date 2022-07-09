@@ -93,6 +93,16 @@ def new_day() -> None:
     print(f"Creating folder '{new_day_folder_name}'.")
     shutil.copytree(temp_dir, new_path)
 
+    # replace template mark with commented solved
+    old = r'@pytest.mark.template'
+    new = r'# @pytest.mark.solved'
+    pattern = re.compile(old)
+    with open(new_path / 'part1.py', 'r+') as f:
+        contents = f.read()
+        contents = pattern.sub(new, contents)
+        f.seek(0)
+        f.write(contents)
+
     # edit run configurations
     print('Editing run configuration.')
     for file in Path('.run').iterdir():
