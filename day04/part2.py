@@ -38,6 +38,7 @@ def compute(s: str) -> int:
 
 
 @pytest.mark.solved
+@pytest.mark.skip('no test provided')
 @pytest.mark.parametrize(
     ('input_s', 'expected'),
     (

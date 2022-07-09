@@ -40,7 +40,8 @@ def compute(s: str) -> int:
     return sum(map(valid_triangle, sides))
 
 
-@pytest.mark.complete
+@pytest.mark.solved
+@pytest.mark.skip('no test provided')
 @pytest.mark.parametrize(
     ('input_s', 'expected'),
     (
